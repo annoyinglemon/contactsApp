@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">HelloTesting</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="enable_location_services_prompt">Please enable location services</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="hello_world">Hello World!</string>
+    <string name="title_activity_scrolling">HelloTesting</string>
+    <string name="title_activity_post_office">Postman</string>
+    <string name="large_text">
+        Press the button for getting IMSI and IMEI
+    </string>
+    <string name="imei_one_large_text">IMEI 1</string>
+    <string name="imei_two_large_text">IMEI 2</string>
+
+    <string name="imsi_one_large_text">IMSI 1</string>
+    <string name="imsi_two_large_text">IMSI 2</string>
+    <string name="iccid_large_text">ICCID</string>
+    <string name="eid_large_text">EID</string>
+
+    <string name="action_esimprov">Esimprov</string>
+    <string name="action_lpa">Lpa</string>
+    <string name="action_postman">Postman</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="title_section_0">IMEI and IMSI</string>
+    <string name="title_section_1">Set prop and restart systemui</string>
+    <string name="title_section_2">Test Login</string>
+    <string name="title_section_3">Retrieve SIM credentials</string>
+    <string name="title_section_4">Roxy</string>
+    <string name="title_section_5">Roxy Plus</string>
+    <string name="title_section_6">Settings</string>
+    <string name="title_section_7">About</string>
+
+</resources>

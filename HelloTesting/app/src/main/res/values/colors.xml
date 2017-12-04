@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#f49d36</color>
+    <color name="colorPrimaryDark">#f4a536</color>
+    <color name="colorAccent">#ff5722</color>
+
+    <item name="button" type="color">#f49d40</item>
+    <!--700-->
+    <item name="text_color" type="color">#ff5740</item>
+
+    <color name="translucent_scrim">#60000000</color>
+    <color name="translucent_scrim_center">#10000000</color>
+    <color name="white">#ffffffff</color>
+</resources>
