@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.knowroaming.mobile.contactDetailPage.viewmodel.ContactViewModel" />
+
+        <variable
+            name="activityViewModel"
+            type="com.knowroaming.mobile.contactDetailPage.viewmodel.ContactInfoActivityViewModel"/>
+    </data>
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar_contactDetails"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_scrollFlags="scroll|enterAlways"
+                app:popupTheme="@style/AppTheme.PopupOverlay"
+                app:title="Contact Details" />
+
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="16dp"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageview_contactDetail"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="10dp"
+                    android:visibility="@{viewModel.imageVisibility}"
+                    android:scaleType="centerCrop" />
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/circle_initials_container"
+                    android:gravity="center"
+                    android:visibility="@{viewModel.initialsVisibility}"
+                    android:text="@{viewModel.nameInitials}"
+                    android:textSize="40sp"
+                    android:paddingBottom="5dp"
+                    android:textColor="@color/white"/>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    app:errorMessage="@{viewModel.emailErrorMessage}">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/edittext_details_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Email*"
+                        android:imeOptions="actionNext"
+                        android:inputType="textEmailAddress"
+                        android:enabled="@{viewModel.emailFieldEnabled}"
+                        android:text="@={viewModel.email}" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal"
+                    android:weightSum="5">
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:errorMessage="@{viewModel.titleErrorMessage}">
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/edittext_details_nameTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Title*"
+                            android:imeOptions="actionNext"
+                            android:inputType="text"
+                            android:nextFocusRight="@+id/edittext_details_firstName"
+                            android:text="@={viewModel.title}" />
+
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        app:errorMessage="@{viewModel.firstNameErrorMessage}">
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/edittext_details_firstName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="First Name*"
+                            android:imeOptions="actionNext"
+                            android:inputType="text"
+                            android:nextFocusRight="@+id/edittext_details_lastName"
+                            android:text="@={viewModel.firstName}" />
+
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        app:errorMessage="@{viewModel.lastNameErrorMessage}">
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/edittext_details_lastName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Last Name*"
+                            android:imeOptions="actionNext"
+                            android:inputType="text"
+                            android:nextFocusDown="@+id/edittext_details_username"
+                            android:text="@={viewModel.lastName}" />
+
+                    </android.support.design.widget.TextInputLayout>
+
+                </LinearLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    app:errorMessage="@{viewModel.usernameErrorMessage}">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/edittext_details_username"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Username*"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:nextFocusDown="@+id/edittext_details_phone"
+                        android:text="@={viewModel.username}" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    app:errorMessage="@{viewModel.phoneErrorMessage}">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/edittext_details_phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Phone*"
+                        android:imeOptions="actionNext"
+                        android:inputType="phone"
+                        android:nextFocusDown="@+id/edittext_details_mobile"
+                        android:text="@={viewModel.phoneNumber}" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/edittext_details_mobile"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Mobile"
+                        android:inputType="phone"
+                        android:nextFocusDown="@+id/edittext_details_addressStreet"
+                        android:text="@={viewModel.cellNumber}" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/edittext_details_addressStreet"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Street"
+                            android:imeOptions="actionNext"
+                            android:inputType="text"
+                            android:nextFocusRight="@+id/edittext_details_addressCity"
+                            android:text="@={viewModel.street}" />
+
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/edittext_details_addressCity"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="City"
+                            android:imeOptions="actionNext"
+                            android:inputType="text"
+                            android:nextFocusDown="@+id/edittext_details_addressState"
+                            android:text="@={viewModel.city}" />
+
+                    </android.support.design.widget.TextInputLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/edittext_details_addressState"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="State"
+                            android:imeOptions="actionNext"
+                            android:inputType="text"
+                            android:nextFocusRight="@+id/edittext_details_addressPostCode"
+                            android:text="@={viewModel.state}" />
+
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/edittext_details_addressPostCode"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Post"
+                            android:imeOptions="actionNext"
+                            android:inputType="number"
+                            android:nextFocusDown="@+id/edittext_details_birthdate"
+                            android:text="@={viewModel.postalCode}" />
+
+                    </android.support.design.widget.TextInputLayout>
+
+                </LinearLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/edittext_details_birthdate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Birth Day"
+                        android:imeOptions="actionDone"
+                        android:inputType="text"
+                        android:text="@={viewModel.birthDate}" />
+
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_contactsActivity_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="@dimen/fab_margin"
+            android:onClick="@{viewModel.editButtonEnabled ? activityViewModel::onContactEditClick : activityViewModel::onContactDisabledButtonClick}"
+            android:visibility="@{viewModel.editButtonVisibility}"
+            app:srcCompat="@drawable/ic_edit_contact" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_contactsActivity_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="@dimen/fab_margin"
+            android:onClick="@{viewModel.saveButtonEnabled ? activityViewModel::onContactSaveClick : activityViewModel::onContactDisabledButtonClick}"
+            android:visibility="@{viewModel.saveButtonVisibility}"
+            app:srcCompat="@drawable/ic_check" />
+
+    </android.support.design.widget.CoordinatorLayout>
+</layout>

@@ -31,5 +31,7 @@
     <string name="title_section_5">Roxy Plus</string>
     <string name="title_section_6">Settings</string>
     <string name="title_section_7">About</string>
+    <string name="title_contact_list">Contacts</string>
+    <string name="title_contact_detail">Contact Detail</string>
 
 </resources>

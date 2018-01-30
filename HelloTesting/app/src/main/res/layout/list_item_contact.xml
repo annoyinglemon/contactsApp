@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.knowroaming.mobile.contactListPage.viewmodel.ContactListItemViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{viewModel::onContactItemClicked}"
+        android:orientation="horizontal"
+        android:paddingBottom="9dp"
+        android:paddingEnd="10dp"
+        android:paddingStart="10dp"
+        android:paddingTop="9dp">
+
+        <ImageView
+            android:id="@+id/imageView_listItem_contactImage"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="20dp"
+            android:contentDescription="@{viewModel.name}"
+            android:visibility="@{viewModel.imageVisibility}"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/circle_initials_container"
+            android:gravity="center"
+            android:visibility="@{viewModel.initialsVisibility}"
+            android:text="@{viewModel.nameInitials}"
+            android:textSize="20sp"
+            android:layout_marginEnd="20dp"
+            android:paddingBottom="3dp"
+            android:textColor="@color/white"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/textView_listItem_contactName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="@{viewModel.name}"
+                android:textSize="15sp"
+                android:layout_marginBottom="2dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.contact.email}"
+                android:textSize="12sp"
+                android:textColor="@color/textColorSecondary"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>
