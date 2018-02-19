@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.knowroaming.mobile.hellotesting">
+    package="com.sample.mobile.contacts">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-        android:name="com.knowroaming.mobile.ContactsApplication"
+        android:name="com.sample.mobile.ContactsApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.knowroaming.mobile.contactListPage.view.ContactListActivity"
+            android:name="com.sample.mobile.contactListPage.view.ContactListActivity"
             android:label="@string/title_contact_list"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -23,10 +23,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.knowroaming.mobile.contactDetailPage.view.ContactInfoActivity"
+            android:name="com.sample.mobile.contactDetailPage.view.ContactInfoActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
 
-        <activity android:name="com.knowroaming.mobile.contactSearchPage.view.ContactSearchActivity"
+        <activity android:name="com.sample.mobile.contactSearchPage.view.ContactSearchActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 

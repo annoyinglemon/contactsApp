@@ -6,11 +6,11 @@
 
         <variable
             name="viewModel"
-            type="com.knowroaming.mobile.contactDetailPage.viewmodel.ContactViewModel" />
+            type="com.sample.mobile.contactDetailPage.viewmodel.ContactViewModel" />
 
         <variable
             name="activityViewModel"
-            type="com.knowroaming.mobile.contactDetailPage.viewmodel.ContactInfoActivityViewModel"/>
+            type="com.sample.mobile.contactDetailPage.viewmodel.ContactInfoActivityViewModel"/>
     </data>
 
     <android.support.design.widget.CoordinatorLayout
